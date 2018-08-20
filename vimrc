@@ -5,7 +5,8 @@ nmap <F12> :!clear; python %<CR>
 syntax enable
 set background=dark
 colorscheme solarized
-
+"making sure this colorscheme follow setting for the terminal
+hi Normal guibg=NONE ctermbg=NONE
 "This sets the vundle 
 set nocompatible
 filetype off
