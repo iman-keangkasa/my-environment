@@ -117,7 +117,7 @@ if ! shopt -oq posix; then
 fi
 
 # Enable tab completion
-source ~/git-completion.bash
+source ~/.git-completion.bash
 
 # colors!
 green="\[\033[0;32m\]"
@@ -126,13 +126,16 @@ purple="\[\033[0;35m\]"
 reset="\[\033[0m\]"
 
 # Change command prompt
-source ~/git-prompt.sh
+source ~/.git-prompt.sh
 export GIT_PS1_SHOWDIRTYSTATE=1
 # '\u' adds the name of the current user to the prompt
 # '\$(__git_ps1)' adds git-related stuff
 # '\W' adds the name of the current directory
 export PS1="$purple\u$green\$(__git_ps1)$blue \W $ $reset"
-
+export PATH=/usr/local/texlive/2018/bin/x86_64-linux:$PATH
 #ROS distro selection
 source /opt/ros/kinetic/setup.bash
-source /home/iman/catkin_ws/devel/setup.bash
+#source ~/ws_moveit/devel/setup.bash
+source ~/catkin-ws/devel/setup.bash
+#source /home/raisuddin/catkin-ws/devel/setup.bash
+source ~/.bashrc_alias_list
