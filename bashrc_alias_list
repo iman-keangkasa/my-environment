@@ -1,0 +1,7 @@
+#!/bin/bash
+alias edx-robot-fundamental='cd /home/raisuddin/version-control/edx-robot-fundamental'
+alias latex-playground='cd /home/raisuddin/version-control/latex-playground'
+alias matlab-playground='cd /home/raisuddin/version-control/matlab-playground'
+alias my-environment='cd /home/raisuddin/version-control/my-environment'
+alias python-playground='cd /home/raisuddin/version-control/python-playground'
+alias ros-playground='cd /home/raisuddin/version-control/ros-playground'
