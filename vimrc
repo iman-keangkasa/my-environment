@@ -25,7 +25,7 @@ call vundle#begin()
 " 'user/repository' format
 
 Plugin 'gmarik/vundle'
-
+Plugin 'preservim/nerdtree'
 " We could also add repositories with a ".git" extension
 "Plugin 'scrooloose/nerdtree.git'
 
@@ -45,3 +45,9 @@ filetype plugin indent on
 au bufnewfile,Bufread *.launch setf xml
 au bufnewfile,Bufread *.xacro setf xml
 au bufnewfile,Bufread *.urdf setf xml
+
+"Mapping the buffer navigation keyS
+nnoremap <C-H> <C-W><C-H>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
