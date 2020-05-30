@@ -47,6 +47,7 @@ Plugin 'scrooloose/nerdtree'
 "Plugin 'Lokaltog/powerline', {'rtp':'powerline/bindings/vim'}
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 "Plugin 'vim-scripts/valgrind.vim'
 " We could also add repositories with a ".git" extension
 "Plugin 'scrooloose/nerdtree.git'
@@ -82,3 +83,8 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-H> <C-W><C-H>
 nnoremap <C-L> <C-W><C-L>
 
+"NERDTREE specific <Leader> key is backlash "\"
+nnoremap <Leader>f :NERDTreeToggle<CR>
+nnoremap <silent> <Leader>v :NERDTreeFind<CR>
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
