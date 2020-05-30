@@ -19,7 +19,6 @@ else
 	sh ~/version-control/tmux/autogen.sh
 	~/version-control/configure && make
 	sudo make install
-fi
 
 cp tmux.conf ~/.tmux.conf
 
