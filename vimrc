@@ -29,43 +29,46 @@ hi Normal guibg=NONE ctermbg=NONE
 hi SpellBad cterm=none ctermfg=17 ctermbg=136 
 
 
-"This sets the vundle 
-set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+"We are migrating from vundle to vim-plug"
+"This sets the vundle"
+
+"set nocompatible
+"filetype off
+"set rtp+=~/.vim/bundle/Vundle.vim
+"call vundle#begin()
 
 " This is the Vundle package, which can be found on GitHub.
 " For GitHub repos, you specify plugins using the
 " 'user/repository' format
 
-Plugin 'gmarik/vundle'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'nvie/vim-flake8'
-Plugin 'scrooloose/nerdtree'
-"Plugin 'Lokaltog/powerline', {'rtp':'powerline/bindings/vim'}
-Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-"Plugin 'vim-scripts/valgrind.vim'
+call plug#begin('~/.vim/autoload')
+Plug 'gmarik/vundle'
+Plug 'altercation/vim-colors-solarized'
+Plug 'vim-syntastic/syntastic'
+Plug 'nvie/vim-flake8'
+Plug 'scrooloose/nerdtree'
+"Plug 'Lokaltog/powerline', {'rtp':'powerline/bindings/vim'}
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'Xuyuanp/nerdtree-git-plug'
+"Plug 'vim-scripts/valgrind.vim'
 " We could also add repositories with a ".git" extension
-"Plugin 'scrooloose/nerdtree.git'
+"Plug 'scrooloose/nerdtree.git'
 
-" To get plugins from Vim Scripts, you can reference the plugin
+" To get plugs from Vim Scripts, you can reference the plug
 " by name as it appears on the site
-"Plugin 'Buffergator'
+"Plug 'Buffergator'
 
 "This is the latex package for vim
-"Plugin 'lervag/vimtex'
+"Plug 'lervag/vimtex'
 
-"Plugin 'altercation/vim-colors-solarized'
+"Plug 'altercation/vim-colors-solarized'
 " Now we can turn our filetype functionality back on
 
-" A vim Plugin for Lively Previewing LaTeX PDF
-Plugin 'xuhdev/vim-latex-live-preview'
+" A vim Plug for Lively Previewing LaTeX PDF
+Plug 'xuhdev/vim-latex-live-preview'
 
-call vundle#end()
+call plug#end()
 filetype plugin indent on
 
 "syntax highlighting for .launch and .urdf as a xml file
