@@ -72,6 +72,8 @@ filetype plugin indent on
 au bufnewfile,Bufread *.launch setf xml
 au bufnewfile,Bufread *.xacro setf xml
 au bufnewfile,Bufread *.urdf setf xml
+au bufnewfile,Bufread *.world setf xml
+au bufnewfile,Bufread *.sdf setf xml
 au bufnewfile,Bufread CMakeLists.txt setf cmake
 
 "enable syntax highlighting for python
@@ -82,6 +84,11 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-H> <C-W><C-H>
 nnoremap <C-L> <C-W><C-L>
+
+"nnoremap <C-Up> <C-W><C-K>
+"nnoremap <C-Down> <C-W><C-J>
+"nnoremap <C-Left> <C-W><C-H>
+"nnoremap <C-Right> <C-W><C-L>
 
 "NERDTREE specific <Leader> key is backlash "\"
 nnoremap <Leader>f :NERDTreeToggle<CR>
