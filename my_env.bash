@@ -6,7 +6,7 @@ cp -r vim ~/.vim
 
 sudo apt-get install vim git tree libevent-dev ncurses-dev build-essential bison pkg-config
 
-git config --global core.edit "vim"
+git config --global core.editor "vim"
 git config --global user.name "iman-keangkasa"
 git config --global user.email "hafiz.ghazman@gmail.com"
 
