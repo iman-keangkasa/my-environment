@@ -12,7 +12,7 @@ set smartindent
 set number
 
 "set shiftwidth=4
-nmap <F12> :!clear; python %<CR>
+"nmap <F12> :!clear; python %<CR>
 syntax enable
 set background=dark
 
@@ -29,19 +29,18 @@ hi Normal guibg=NONE ctermbg=NONE
 hi SpellBad cterm=none ctermfg=17 ctermbg=136 
 
 
-"We are migrating from vundle to vim-plug"
-"This sets the vundle"
+"This sets the vundle 
+set nocompatible
 
-"set nocompatible
-"filetype off
-"set rtp+=~/.vim/bundle/Vundle.vim
-"call vundle#begin()
+" MIGRATING FROM VUNDLE TO VIM-PLUG
+" R filetype off
+" R set rtp+=~/.vim/bundle/Vundle.vim
+call plug#begin()
 
 " This is the Vundle package, which can be found on GitHub.
 " For GitHub repos, you specify plugins using the
 " 'user/repository' format
 
-call plug#begin('~/.vim/autoload')
 Plug 'gmarik/vundle'
 Plug 'altercation/vim-colors-solarized'
 Plug 'vim-syntastic/syntastic'
@@ -50,12 +49,18 @@ Plug 'scrooloose/nerdtree'
 "Plug 'Lokaltog/powerline', {'rtp':'powerline/bindings/vim'}
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'Xuyuanp/nerdtree-git-plug'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+"Plug 'jremmen/vim-ripgrep'
+Plug 'mileszs/ack.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
 "Plug 'vim-scripts/valgrind.vim'
 " We could also add repositories with a ".git" extension
 "Plug 'scrooloose/nerdtree.git'
 
-" To get plugs from Vim Scripts, you can reference the plug
+" To get plugins from Vim Scripts, you can reference the plugin
 " by name as it appears on the site
 "Plug 'Buffergator'
 
@@ -69,7 +74,7 @@ Plug 'Xuyuanp/nerdtree-git-plug'
 Plug 'xuhdev/vim-latex-live-preview'
 
 call plug#end()
-filetype plugin indent on
+filetype plugin on
 
 "syntax highlighting for .launch and .urdf as a xml file
 au bufnewfile,Bufread *.launch setf xml
@@ -98,3 +103,45 @@ nnoremap <Leader>f :NERDTreeToggle<CR>
 nnoremap <silent> <Leader>v :NERDTreeFind<CR>
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
+
+" ack.vim --- {{{
+
+" Use ripgrep for searching ⚡️
+" Options include:
+" --vimgrep -> Needed to parse the rg response properly for ack.vim
+" --type-not sql -> Avoid huge sql file dumps as it slows down the search
+" --smart-case -> Search case insensitive if all lowercase pattern, Search case sensitively otherwise
+let g:ackprg = 'rg --vimgrep --type-not sql --smart-case'
+
+" Auto close the Quickfix list after pressing '<enter>' on a list item
+let g:ack_autoclose = 1
+
+" Any empty ack search will search for the work the cursor is on
+let g:ack_use_cword_for_empty_search = 1
+
+" Don't jump to first match
+cnoreabbrev Ack Ack!
+
+" Maps <leader>/ so we're ready to type the search keyword
+nnoremap <Leader>/ :Ack!<Space>
+" }}}
+
+" Navigate quickfix list with ease
+nnoremap <silent> [q :cprevious<CR>
+nnoremap <silent> ]q :cnext<CR>
+
+" This will set new window (buffer) as a vertical split pane when selecting
+" result from quicklist
+set switchbuf=useopen,vsplit
+
+"asyncomplete setting
+let g:asyncomplete_auto_popup = 1
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
+
+" allow modifying the completeopt variable, or it will
+" be overridden all the time
+let g:asyncomplete_auto_completeopt = 1
+
+"set completeopt=menuone,noinsert,noselect,preview
